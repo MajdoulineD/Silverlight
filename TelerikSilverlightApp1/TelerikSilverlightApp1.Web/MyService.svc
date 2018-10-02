@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TelerikSilverlightApp1.Web.MyService" CodeBehind="MyService.svc.cs" %>

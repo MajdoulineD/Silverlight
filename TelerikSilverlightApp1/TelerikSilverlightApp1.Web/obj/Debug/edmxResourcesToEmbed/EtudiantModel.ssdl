@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjetSilverLightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Etudiant">
+    <Key>
+      <PropertyRef Name="cne" />
+    </Key>
+    <Property Name="cne" Type="int" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="prenom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="date_naissance" Type="date" />
+    <Property Name="picture" Type="varchar" MaxLength="100" />
+    <Property Name="note" Type="float" />
+    <Property Name="filiere" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Filiere">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom_filiere" Type="varchar" MaxLength="50" />
+    <Property Name="responsable" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Etudiant_Filiere">
+    <End Role="Filiere" Type="Self.Filiere" Multiplicity="0..1" />
+    <End Role="Etudiant" Type="Self.Etudiant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filiere">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Etudiant">
+        <PropertyRef Name="filiere" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjetSilverLightModelStoreContainer">
+    <EntitySet Name="Etudiant" EntityType="Self.Etudiant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Filiere" EntityType="Self.Filiere" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Etudiant_Filiere" Association="Self.FK_Etudiant_Filiere">
+      <End Role="Filiere" EntitySet="Filiere" />
+      <End Role="Etudiant" EntitySet="Etudiant" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjetSilverLightModelStoreContainer" CdmEntityContainer="EtudiantEntities">
+    <EntitySetMapping Name="Etudiants">
+      <EntityTypeMapping TypeName="ProjetSilverLightModel.Etudiant">
+        <MappingFragment StoreEntitySet="Etudiant">
+          <ScalarProperty Name="cne" ColumnName="cne" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="date_naissance" ColumnName="date_naissance" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="filiere" ColumnName="filiere" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filieres">
+      <EntityTypeMapping TypeName="ProjetSilverLightModel.Filiere">
+        <MappingFragment StoreEntitySet="Filiere">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom_filiere" ColumnName="nom_filiere" />
+          <ScalarProperty Name="responsable" ColumnName="responsable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

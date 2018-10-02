@@ -1,0 +1,31 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_MyService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_MyService1">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+                <binding name="CustomBinding_MyService2">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="../MyService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_MyService" contract="ServiceReference1.MyService"
+                name="CustomBinding_MyService" />
+            <endpoint address="../MyService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_MyService1" contract="ServiceReference2.MyService"
+                name="CustomBinding_MyService1" />
+            <endpoint address="../MyService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_MyService2" contract="ServiceReference3.MyService"
+                name="CustomBinding_MyService2" />
+        </client>
+    </system.serviceModel>
+</configuration>

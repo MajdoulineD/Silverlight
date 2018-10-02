@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:59531/MyService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:59531/MyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59531/MyService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:59531/MyService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TelerikSilverlightApp1.Web" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MyService_GetFilieresStats_InputMessage">
+    <wsdl:part name="parameters" element="GetFilieresStats" />
+  </wsdl:message>
+  <wsdl:message name="MyService_GetFilieresStats_OutputMessage">
+    <wsdl:part name="parameters" element="GetFilieresStatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MyService_GetAllStudents_InputMessage">
+    <wsdl:part name="parameters" element="GetAllStudents" />
+  </wsdl:message>
+  <wsdl:message name="MyService_GetAllStudents_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllStudentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MyService_DeleteStudent_InputMessage">
+    <wsdl:part name="parameters" element="DeleteStudent" />
+  </wsdl:message>
+  <wsdl:message name="MyService_DeleteStudent_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="MyService_getStudent_InputMessage">
+    <wsdl:part name="parameters" element="getStudent" />
+  </wsdl:message>
+  <wsdl:message name="MyService_getStudent_OutputMessage">
+    <wsdl:part name="parameters" element="getStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="MyService_GetStudentsByFiliere_InputMessage">
+    <wsdl:part name="parameters" element="GetStudentsByFiliere" />
+  </wsdl:message>
+  <wsdl:message name="MyService_GetStudentsByFiliere_OutputMessage">
+    <wsdl:part name="parameters" element="GetStudentsByFiliereResponse" />
+  </wsdl:message>
+  <wsdl:message name="MyService_GetAllFilieres_InputMessage">
+    <wsdl:part name="parameters" element="GetAllFilieres" />
+  </wsdl:message>
+  <wsdl:message name="MyService_GetAllFilieres_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllFilieresResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MyService">
+    <wsdl:operation name="GetFilieresStats">
+      <wsdl:input wsaw:Action="urn:MyService/GetFilieresStats" message="MyService_GetFilieresStats_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MyService/GetFilieresStatsResponse" message="MyService_GetFilieresStats_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllStudents">
+      <wsdl:input wsaw:Action="urn:MyService/GetAllStudents" message="MyService_GetAllStudents_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MyService/GetAllStudentsResponse" message="MyService_GetAllStudents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteStudent">
+      <wsdl:input wsaw:Action="urn:MyService/DeleteStudent" message="MyService_DeleteStudent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MyService/DeleteStudentResponse" message="MyService_DeleteStudent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudent">
+      <wsdl:input wsaw:Action="urn:MyService/getStudent" message="MyService_getStudent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MyService/getStudentResponse" message="MyService_getStudent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsByFiliere">
+      <wsdl:input wsaw:Action="urn:MyService/GetStudentsByFiliere" message="MyService_GetStudentsByFiliere_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MyService/GetStudentsByFiliereResponse" message="MyService_GetStudentsByFiliere_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllFilieres">
+      <wsdl:input wsaw:Action="urn:MyService/GetAllFilieres" message="MyService_GetAllFilieres_InputMessage" />
+      <wsdl:output wsaw:Action="urn:MyService/GetAllFilieresResponse" message="MyService_GetAllFilieres_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

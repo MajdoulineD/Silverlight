@@ -1,0 +1,48 @@
+﻿<navigation:Page x:Class="TelerikSilverlightApp1.TelerikScenario1"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:telerikPrimitives="using:Telerik.UI.Xaml.Controls.Primitives"
+                 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                mc:Ignorable="d"
+                d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <Button Margin="10"
+                    Content="Retour au menu"
+                    HorizontalAlignment="Left"
+                    Padding="10"
+                x:Name="back" Click="back_Click"
+                        FontSize="18"
+                        Foreground="#0099ff"></Button>
+        <telerik:RadChart Name="myChart">
+            
+            <telerik:RadChart.PaletteBrushes>
+                <SolidColorBrush Color="Goldenrod" />
+                <SolidColorBrush Color="Yellow" />
+            </telerik:RadChart.PaletteBrushes>
+
+            <telerik:BarSeries ShowLabels="True" >
+
+
+
+                <telerik:BarSeries.DefaultVisualStyle>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="Red"/>
+                    </Style>
+
+                </telerik:BarSeries.DefaultVisualStyle>
+
+
+            </telerik:BarSeries>
+
+            
+        </telerik:RadChart>
+
+        <telerik:RadBusyIndicator BusyContent="Chargement en cours" ProgressValue="{Binding progress}" x:Name="busy"
+				IsIndeterminate="False">
+        </telerik:RadBusyIndicator>
+
+    </StackPanel>
+</navigation:Page>

@@ -1,0 +1,38 @@
+﻿
+<navigation:Page x:Class="TelerikSilverlightApp1.TelerikScenario2"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                mc:Ignorable="d"
+                d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Margin="20" VerticalAlignment="Center">
+        <TextBlock
+            Margin="10"
+                   FontSize="24"
+            Foreground="DarkOrchid"
+            HorizontalAlignment="Center">Galerie des étudiants</TextBlock>
+        <telerik:RadCoverFlow OffsetY="10" x:Name="cf">
+            <telerik:RadCoverFlow.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="120" Height="200" >
+                        <TextBlock Text="{Binding Nom}" HorizontalAlignment="Center"></TextBlock>
+                        <Image Source="{Binding Picture}" Stretch="Fill" Width="100" Height="100" />
+                        <Button Click="Button_Click">Visualiser</Button>
+                        <Button Click="Button_Click_1">Modifier</Button>
+                        <Button Click="Button_Click_2">Supprimer</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </telerik:RadCoverFlow.ItemTemplate>
+        </telerik:RadCoverFlow>
+        <Button Margin="10"
+                x:Name="back" Click="back_Click"
+                    Content="Retour!"
+                    HorizontalAlignment="Center"
+                    Padding="10"
+                        FontSize="18"
+                        Foreground="DarkGoldenrod"></Button>
+    </StackPanel>
+</navigation:Page>

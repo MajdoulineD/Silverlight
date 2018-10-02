@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjetSilverLightModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Etudiant">
+    <Key>
+      <PropertyRef Name="cne" />
+    </Key>
+    <Property Name="cne" Type="Int32" Nullable="false" />
+    <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="date_naissance" Type="DateTime" Precision="0" />
+    <Property Name="picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="note" Type="Double" />
+    <Property Name="filiere" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Filiere1" Relationship="Self.FK_Etudiant_Filiere" FromRole="Etudiant" ToRole="Filiere" />
+  </EntityType>
+  <EntityType Name="Filiere">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nom_filiere" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="responsable" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Etudiants" Relationship="Self.FK_Etudiant_Filiere" FromRole="Filiere" ToRole="Etudiant" />
+  </EntityType>
+  <Association Name="FK_Etudiant_Filiere">
+    <End Role="Filiere" Type="Self.Filiere" Multiplicity="0..1" />
+    <End Role="Etudiant" Type="Self.Etudiant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filiere">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Etudiant">
+        <PropertyRef Name="filiere" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EtudiantEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Etudiants" EntityType="Self.Etudiant" />
+    <EntitySet Name="Filieres" EntityType="Self.Filiere" />
+    <AssociationSet Name="FK_Etudiant_Filiere" Association="Self.FK_Etudiant_Filiere">
+      <End Role="Filiere" EntitySet="Filieres" />
+      <End Role="Etudiant" EntitySet="Etudiants" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
